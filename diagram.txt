@@ -1,0 +1,40 @@
+  [Live Network]
+       |
+       | raw packets
+       v
+  [Wireshark / Zeek / Custom Sensor]
+       |
+       | computes 46 flow-level features per connection
+       v
+  [Feature Vector]
+  { Rate: 104000, SYN_flags: 312, Std: 0.0, IAT: 0.000009, ... }
+       |
+       |-----------------------------+
+       |                             |
+       v                             v
+  [Decision Tree 1]           [Decision Tree 2]
+  random_state=17              random_state=2
+  max_depth=9                  max_depth=9
+       |                             |
+       v                             v
+  DDoS (98.7%)              Spoofing (61.2%)
+       |                             |
+       +-----------> DISAGREE <------+
+                         |
+                         v
+              [Path Serializer]
+              converts threshold conditions
+              to plain English descriptions
+                         |
+                         v
+              [GPT-3.5-turbo-16k]
+              receives both paths + definitions
+                         |
+                         v
+              Final Answer: DDoS
+              + human-readable explanation
+                         |
+                         v
+              [Alert to Administrator]
+              "DDoS attack detected from 192.168.1.45
+               Block source IP. Confidence: High."
