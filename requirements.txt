@@ -1,0 +1,18 @@
+# LLM inference (parallel_request.py)
+aiohttp==3.14.1
+tiktoken==0.13.0
+typer==0.26.7
+typing_extensions==4.15.0
+python-dotenv==1.2.2
+
+# Decision tree training & path extraction
+scikit-learn==1.9.0
+numpy==2.4.6
+pandas==3.0.3
+matplotlib==3.10.9
+
+# Jupyter notebooks (find_paths_1.ipynb, find_paths_2.ipynb)
+jupyter==1.1.1
+jupyterlab==4.5.8
+nbconvert==7.17.1
+ipykernel==7.3.0
