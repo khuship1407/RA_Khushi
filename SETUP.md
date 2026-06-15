@@ -69,45 +69,7 @@ OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ---
 
-## Step 5 — Verify the Setup
-
-Run the single-sample end-to-end test to confirm everything works before running the full pipeline:
-
-```powershell
-cd Code_Base
-python test_single_sample.py
-```
-
-Expected output:
-
-```
-Loading training data and fitting decision trees...
-  Trees trained.
-  Sending to gpt-3.5-turbo-16k...
-
-============================================================
-  SINGLE SAMPLE TEST
-============================================================
-  Row index in combined_test.csv: 912
-
-  Sample features (top 10):
-    Rate                 2.7150
-    ...
-
-  Tree 1 says:  Brute_Force  (confidence: 100.0%)
-  Tree 2 says:  Brute_Force  (confidence: 100.0%)
-
-  GPT Final Answer: Brute_Force [CORRECT]
-  ...
-  Result: CORRECT [CORRECT]
-============================================================
-```
-
-If this runs without errors, your environment, API key, and data files are all working correctly.
-
----
-
-## Step 6 — Run the Full Pipeline
+## Step 5 — Run the Full Pipeline
 
 There are two experiment scenarios. Run them from the directories specified below — the scripts use relative paths and will fail if run from the wrong location.
 
@@ -307,6 +269,44 @@ python 3.0-evaluation.py
 ```
 
 **Expected results:** Accuracy ~76.0%, F1 ~76.0% (only ~2.6% drop from Scenario A)
+
+---
+
+## Step 6 — Verify the Setup
+
+Run the single-sample end-to-end test to confirm everything works before running the full pipeline:
+
+```powershell
+cd Code_Base
+python test_single_sample.py
+```
+
+Expected output:
+
+```
+Loading training data and fitting decision trees...
+  Trees trained.
+  Sending to gpt-3.5-turbo-16k...
+
+============================================================
+  SINGLE SAMPLE TEST
+============================================================
+  Row index in combined_test.csv: 912
+
+  Sample features (top 10):
+    Rate                 2.7150
+    ...
+
+  Tree 1 says:  Brute_Force  (confidence: 100.0%)
+  Tree 2 says:  Brute_Force  (confidence: 100.0%)
+
+  GPT Final Answer: Brute_Force [CORRECT]
+  ...
+  Result: CORRECT [CORRECT]
+============================================================
+```
+
+If this runs without errors, your environment, API key, and data files are all working correctly.
 
 ---
 
